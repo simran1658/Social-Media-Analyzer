@@ -4,6 +4,15 @@ The **Social Media Content Analyzer** is a full-stack application that helps use
 
 ---
 
+## Technical Approach: A Hybrid Frontend/Backend Architecture
+Our Social Media Content Analyzer is built on a unique hybrid architecture that intelligently distributes work between the client and server for optimal performance and efficiency.
+
+The user-facing application is a React.js frontend that handles all user interactions. For image files (JPG, PNG), we utilize the Tesseract.js library to perform Optical Character Recognition (OCR) directly in the browser. This offloads a computationally intensive task from the server, providing faster feedback and a more responsive user experience.
+
+For PDF documents, the frontend sends the file to a Node.js/Express.js backend using multer. The backend then uses pdf2json to accurately extract the text.
+
+Regardless of the file type, all extracted text is sent to a single, unified API endpoint on the backend. Here, a well-engineered prompt is sent to the Gemini API for a detailed analysis of the content. This approach demonstrates a clean separation of concerns and a modern, scalable design. The final, AI-generated suggestions are returned to the frontend, where they are displayed to the user.
+
 ## ✨ Features
 
 - **Multimodal Analysis**: Upload images or PDFs. The app uses OCR and PDF parsing to extract text.  
