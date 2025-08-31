@@ -7,6 +7,7 @@ import fs from "fs";
 import cors from "cors";
 import PDFParser from "pdf2json";
 import Tesseract from "tesseract.js";
+import path from 'path';
 
 dotenv.config();
 
@@ -22,6 +23,15 @@ const upload = multer({ dest: "uploads/" });
 // Load API key and port from .env
 const API_KEY = process.env.GEMINI_API_KEY;
 const PORT = process.env.PORT || 5000;
+
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+  });
+}
 
 if (!API_KEY) {
   console.error("❌ GEMINI_API_KEY is missing in .env file");
