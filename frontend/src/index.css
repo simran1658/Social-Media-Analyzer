@@ -1,0 +1,15 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add these lines to re-enable bullet points */
+.suggestion-list ul {
+  list-style-type: disc;
+  padding-left: 1.5rem; /* Add some indentation */
+}
+
+.suggestion-list ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem; /* Add some indentation */
+}
