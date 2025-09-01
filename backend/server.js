@@ -8,8 +8,12 @@ import cors from "cors";
 import PDFParser from "pdf2json";
 import Tesseract from "tesseract.js";
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url)); 
 
 dotenv.config();
+
 
 const app = express();
 
