@@ -86,4 +86,3 @@ Terminal 2 – Start the frontend:
 cd frontend npm start
 
 The application will be available at http://localhost:5000
->>>>>>> 08d4d68 (Add frontend as normal folder and update backend/README)
